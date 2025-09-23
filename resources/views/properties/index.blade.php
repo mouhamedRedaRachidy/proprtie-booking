@@ -26,20 +26,7 @@
                     Réservez des propriétés uniques, partout dans le monde, pour des expériences inoubliables
                 </p>
 
-                <!-- Search Bar -->
-                <div class="max-w-2xl mx-auto mb-8">
-                    <div
-                        class="bg-white bg-opacity-20 backdrop-blur-lg rounded-2xl p-2 shadow-2xl border border-white border-opacity-20">
-                        <div class="flex flex-col md:flex-row gap-2">
-                            <input type="text" placeholder="Où souhaitez-vous partir?"
-                                class="flex-1 px-6 py-4 bg-white bg-opacity-20 rounded-xl text-white placeholder-blue-100 border-0 focus:outline-none focus:ring-2 focus:ring-white focus:ring-opacity-50">
-                            <button
-                                class="bg-gradient-to-r from-orange-500 to-pink-500 text-white px-8 py-4 rounded-xl font-semibold hover:from-orange-600 hover:to-pink-600 transition-all transform hover:scale-105 shadow-lg">
-                                🔍 Rechercher
-                            </button>
-                        </div>
-                    </div>
-                </div>
+
 
                 <!-- Stats -->
                 <div class="flex justify-center gap-8 text-center">
@@ -81,9 +68,9 @@
                 @foreach ($properties as $property)
                     <div
                         class="group bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-3 hover:rotate-1 border border-gray-50">
-                     
 
-                        <!-- Content -->
+
+
                         <div class="p-6">
                             <div class="flex items-start justify-between mb-3">
                                 <h3
@@ -99,7 +86,7 @@
 
 
 
-                            <!-- Price and Booking -->
+
                             <div class="flex justify-between items-center pt-4 border-t border-gray-100">
                                 <div>
                                     <div class="flex items-baseline gap-1">
@@ -113,12 +100,10 @@
                                         Taxes incluses
                                     </div>
                                 </div>
-                                <a href="{{ route('bookings.create', $property) }}"
-                                    class="bg-gradient-to-r from-orange-500 to-pink-500 text-white px-6 py-3 rounded-2xl font-semibold hover:from-orange-600 hover:to-pink-600 transition-all transform hover:scale-105 shadow-lg hover:shadow-xl relative overflow-hidden group/button">
-                                    <span class="relative z-10">✨ Réserver</span>
-                                    <div
-                                        class="absolute inset-0 bg-gradient-to-r from-pink-500 to-orange-500 opacity-0 group-hover/button:opacity-100 transition-opacity duration-300 blur">
-                                    </div>
+                                <a href="{{ route('property.booking', $property) }}"
+                                    class="bg-primary text-white px-6 py-3 rounded-2xl font-semibold  transition-all transform  shadow-lg hover:shadow-xl relative overflow-hidden group/button">
+                                    <span class="relative z-10">Réserver</span>
+
                                 </a>
                             </div>
                         </div>
@@ -126,72 +111,10 @@
                 @endforeach
             </div>
 
-            <!-- Load More Button -->
-            <div class="text-center mt-16">
-                <button
-                    class="bg-white text-gray-700 px-8 py-4 rounded-2xl font-semibold border-2 border-gray-200 hover:border-blue-500 hover:text-blue-600 transition-all transform hover:scale-105 shadow-lg">
-                    Voir plus de propriétés
-                </button>
-            </div>
+
         </div>
     </section>
 
-    <!-- CALL TO ACTION -->
-    <section class="py-20 bg-gradient-to-r from-blue-600 to-purple-700 text-white">
-        <div class="container mx-auto text-center px-4">
-            <div class="max-w-3xl mx-auto">
-                <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    Prêt pour votre prochaine aventure ?
-                </h2>
-                <p class="text-xl mb-8 text-blue-100">
-                    Rejoignez des milliers de voyageurs qui ont trouvé leur propriété idéale
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <button
-                        class="bg-white text-blue-600 px-8 py-4 rounded-2xl font-semibold hover:bg-gray-100 transition-all transform hover:scale-105 shadow-lg">
-                        🎯 Commencer ma recherche
-                    </button>
-                    <button
-                        class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-2xl font-semibold hover:bg-white hover:text-blue-600 transition-all transform hover:scale-105">
-                        📱 Télécharger l'app
-                    </button>
-                </div>
-            </div>
-        </div>
-    </section>
+
 
 @endsection
-
-@push('styles')
-    <style>
-        .line-clamp-1 {
-            display: -webkit-box;
-            -webkit-line-clamp: 1;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .line-clamp-2 {
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .animate-float {
-            animation: float 3s ease-in-out infinite;
-        }
-    </style>
-@endpush
